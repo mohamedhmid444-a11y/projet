@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GameStatusTab</class>
+ <widget class="QWidget" name="GameStatusTab">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>520</width>
+    <height>620</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Game Status</string>
+  </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget#GameStatusTab {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #0b0f18, stop:1 #142038);
+    color: #e6f1ff;
+}
+QFrame#headerFrame {
+    background-color: #0f1826;
+    border: 1px solid #27324a;
+    border-radius: 14px;
+}
+QLabel#labelHeaderTitle {
+    font-size: 22px;
+    font-weight: 600;
+}
+QLabel#labelHeaderSubtitle {
+    color: #8fa3c5;
+}
+QLabel#labelHeaderStatus {
+    background-color: #0b2238;
+    color: #4ef0ff;
+    padding: 6px 12px;
+    border-radius: 12px;
+    border: 1px solid #2a8cff;
+}
+QGroupBox {
+    background-color: #121a26;
+    border: 1px solid #23304a;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    padding: 0 6px;
+    color: #a9b8d4;
+    font-weight: 600;
+}
+QListWidget, QComboBox, QSpinBox, QTableWidget {
+    background-color: #0e1522;
+    border: 1px solid #26334b;
+    border-radius: 8px;
+    padding: 6px;
+}
+QListWidget::item:selected,
+QTableWidget::item:selected {
+    background-color: #2a8cff;
+    color: #0b0f16;
+}
+QHeaderView::section {
+    background-color: #111b2b;
+    color: #8fa3c5;
+    border: none;
+    padding: 6px;
+}
+QComboBox::drop-down {
+    border: none;
+}
+QScrollArea {
+  background: transparent;
+}
+QScrollArea > QWidget > QWidget {
+  background: transparent;
+}
+QCheckBox {
+    color: #c7d2e3;
+}
+QPushButton {
+    background-color: #2a8cff;
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 6px 14px;
+}
+QPushButton:hover {
+    background-color: #47a1ff;
+}
+QPushButton#btnReset {
+    background-color: #223043;
+}
+QPushButton#btnReset:hover {
+    background-color: #2a3a54;
+}
+QPushButton#btnApply {
+    background-color: #00f5d4;
+    color: #06211d;
+}
+QPushButton#btnApply:hover {
+    background-color: #36ffe4;
+}
+QLabel#labelRunStateBadge {
+    background-color: #13213a;
+    border: 1px solid #2a8cff;
+    border-radius: 10px;
+    padding: 4px 10px;
+    font-weight: 600;
+}
+QLabel#labelScanHint,
+QLabel#labelHeaderSubtitle {
+    color: #8fa3c5;
+}</string>
+    </property>
+    <layout class="QVBoxLayout" name="mainLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="widgetResizable">
+      <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollContent">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>500</width>
+        <height>820</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="scrollLayout">
+       <property name="spacing">
+        <number>12</number>
+       </property>
+       <property name="leftMargin">
+        <number>16</number>
+       </property>
+       <property name="topMargin">
+        <number>16</number>
+       </property>
+       <property name="rightMargin">
+        <number>16</number>
+       </property>
+       <property name="bottomMargin">
+        <number>16</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="headerFrame">
+        <layout class="QHBoxLayout" name="headerLayout">
+         <item>
+          <layout class="QVBoxLayout" name="headerTextLayout">
+          <item>
+           <widget class="QLabel" name="labelHeaderTitle">
+            <property name="text">
+            <string>Game Status</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelHeaderSubtitle">
+            <property name="text">
+            <string>Monitor running games and map scenes instantly.</string>
+            </property>
+           </widget>
+          </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="headerSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelHeaderStatus">
+          <property name="text">
+           <string>Scan: Idle</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          </widget>
+         </item>
+        </layout>
+        </widget>
+       </item>
+        <item>
+         <widget class="QGroupBox" name="groupLiveTelemetry">
+          <property name="title">
+            <string>Live Telemetry</string>
+          </property>
+          <layout class="QVBoxLayout" name="telemetryLayout">
+            <item>
+             <layout class="QGridLayout" name="telemetryGrid">
+              <item row="0" column="0">
+                <widget class="QLabel" name="labelRunStateTitle">
+                 <property name="text">
+                  <string>Status</string>
+                 </property>
+                </widget>
+              </item>
+              <item row="0" column="1">
+                <widget class="QLabel" name="labelRunStateBadge">
+                 <property name="text">
+                  <string>IDLE</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+              </item>
+              <item row="1" column="0">
+                <widget class="QLabel" name="labelCurrentGameTitle">
+                 <property name="text">
+                  <string>Current game</string>
+                 </property>
+                </widget>
+              </item>
+              <item row="1" column="1">
+                <widget class="QLabel" name="labelCurrentGameValue">
+                 <property name="text">
+                  <string>None</string>
+                 </property>
+                </widget>
+              </item>
+              <item row="2" column="0">
+                <widget class="QLabel" name="labelLastScanTitle">
+                 <property name="text">
+                  <string>Last scan</string>
+                 </property>
+                </widget>
+              </item>
+              <item row="2" column="1">
+                <widget class="QLabel" name="labelLastScanValue">
+                 <property name="text">
+                  <string>Never</string>
+                 </property>
+                </widget>
+              </item>
+              <item row="3" column="0">
+                <widget class="QLabel" name="labelNextScanTitle">
+                 <property name="text">
+                  <string>Next scan</string>
+                 </property>
+                </widget>
+              </item>
+              <item row="3" column="1">
+                <widget class="QLabel" name="labelNextScanValue">
+                 <property name="text">
+                  <string>0 s</string>
+                 </property>
+                </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkDemoMode">
+              <property name="text">
+                <string>Demo mode (simulated live data)</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelLogTitle">
+              <property name="text">
+                <string>Recent detections</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QListWidget" name="listScanLog"/>
+            </item>
+          </layout>
+         </widget>
+        </item>
+   <item>
+    <widget class="QGroupBox" name="groupMonitoredGames">
+     <property name="title">
+      <string>Monitored Games</string>
+     </property>
+     <layout class="QVBoxLayout" name="monitoredGamesLayout">
+      <item>
+       <widget class="QListWidget" name="listMonitoredGames">
+        <property name="selectionMode">
+         <enum>QAbstractItemView::SingleSelection</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="monitoredGamesButtonsLayout">
+        <item>
+         <widget class="QPushButton" name="btnAddGame">
+          <property name="text">
+           <string>Add</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnRemoveGame">
+          <property name="text">
+           <string>Remove</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="monitoredGamesButtonSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupSceneMapping">
+     <property name="title">
+      <string>Scene Mapping</string>
+     </property>
+     <layout class="QVBoxLayout" name="sceneMappingLayout">
+      <item>
+       <layout class="QFormLayout" name="sceneMappingFormLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="labelSceneGameRunning">
+          <property name="text">
+           <string>When game is running:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QComboBox" name="comboSceneGameRunning"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="labelSceneNoGame">
+          <property name="text">
+           <string>When no game is running:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QComboBox" name="comboSceneNoGame"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkAutoDetect">
+        <property name="text">
+         <string>Auto-detect running games (experimental)</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+    <item>
+     <widget class="QGroupBox" name="groupMappingSummary">
+      <property name="title">
+        <string>Mapping Summary</string>
+      </property>
+      <layout class="QVBoxLayout" name="mappingSummaryLayout">
+        <item>
+         <widget class="QTableWidget" name="tableMappingSummary">
+          <property name="columnCount">
+            <number>2</number>
+          </property>
+          <property name="rowCount">
+            <number>0</number>
+          </property>
+         </widget>
+        </item>
+      </layout>
+     </widget>
+    </item>
+   <item>
+    <widget class="QGroupBox" name="groupScanSettings">
+     <property name="title">
+      <string>Scan Settings</string>
+     </property>
+     <layout class="QVBoxLayout" name="scanSettingsLayout">
+      <item>
+       <layout class="QHBoxLayout" name="scanSettingsRow">
+        <item>
+         <widget class="QLabel" name="labelScanInterval">
+          <property name="text">
+           <string>Check for game process every:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spinScanInterval">
+          <property name="minimum">
+           <number>500</number>
+          </property>
+          <property name="maximum">
+           <number>10000</number>
+          </property>
+          <property name="value">
+           <number>2000</number>
+          </property>
+          <property name="suffix">
+           <string> ms</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="scanSettingsSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelScanHint">
+        <property name="text">
+         <string>Lower values detect faster but use more CPU.</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="actionButtonsLayout">
+     <item>
+      <spacer name="actionButtonsSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnSave">
+       <property name="text">
+        <string>Save</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnReset">
+       <property name="text">
+        <string>Reset</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnApply">
+       <property name="text">
+        <string>Apply</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

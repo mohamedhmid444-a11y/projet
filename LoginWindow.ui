@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LoginWindow</class>
+ <widget class="QWidget" name="LoginWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>520</width>
+    <height>640</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Smart Scene Switcher - Login</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#LoginWindow {
+  background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #0f1116, stop:1 #1b2333);
+  color: #e6e6e6;
+}
+QLabel#labelTitle {
+  font-size: 22px;
+  font-weight: 600;
+}
+QLabel#labelSubtitle {
+  color: #9aa0a6;
+}
+QLineEdit {
+  background-color: #1c1f26;
+  border: 1px solid #2b2f3a;
+  border-radius: 8px;
+  padding: 8px;
+  color: #f5f5f5;
+}
+QLineEdit:focus {
+  border: 1px solid #5aa2ff;
+}
+QCheckBox {
+  color: #cbd5e1;
+}
+QPushButton {
+  background-color: #3a86ff;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+QPushButton:hover {
+  background-color: #5aa2ff;
+}
+QPushButton#btnShowSignup,
+QPushButton#btnShowLogin {
+  background: transparent;
+  color: #9cc4ff;
+  text-decoration: underline;
+  padding: 4px;
+}
+QPushButton#btnShowSignup:hover,
+QPushButton#btnShowLogin:hover {
+  color: #cfe2ff;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+   <item>
+    <spacer name="topSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QLabel" name="labelTitle">
+     <property name="text">
+      <string>Smart Scene Switcher</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignHCenter|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="labelSubtitle">
+     <property name="text">
+      <string>Sign in to manage your switching profile</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignHCenter|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QStackedWidget" name="stackedPages">
+     <widget class="QWidget" name="pageLogin">
+      <layout class="QVBoxLayout" name="loginLayout">
+       <item>
+        <widget class="QLabel" name="labelLoginTitle">
+         <property name="text">
+          <string>Login</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font-size: 18px; font-weight: 600;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="editLoginUsername">
+         <property name="placeholderText">
+          <string>Username</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="editLoginPassword">
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+         <property name="placeholderText">
+          <string>Password</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkRememberMe">
+         <property name="text">
+          <string>Remember me</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnLogin">
+         <property name="text">
+          <string>Login</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnShowSignup">
+         <property name="text">
+          <string>Create account</string>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageSignup">
+      <layout class="QVBoxLayout" name="signupLayout">
+       <item>
+        <widget class="QLabel" name="labelSignupTitle">
+         <property name="text">
+          <string>Create account</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font-size: 18px; font-weight: 600;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="editSignupUsername">
+         <property name="placeholderText">
+          <string>Username</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="editSignupEmail">
+         <property name="placeholderText">
+          <string>Email</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="editSignupPassword">
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+         <property name="placeholderText">
+          <string>Password</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="editSignupConfirm">
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+         <property name="placeholderText">
+          <string>Confirm password</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnSignup">
+         <property name="text">
+          <string>Sign up</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnShowLogin">
+         <property name="text">
+          <string>Back to login</string>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <spacer name="bottomSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

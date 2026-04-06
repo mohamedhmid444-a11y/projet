@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainDashboard</class>
+ <widget class="QWidget" name="MainDashboard">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>980</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Smart Scene Switcher - Dashboard</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#MainDashboard {
+  background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #0b0f18, stop:1 #131a2b);
+  color: #e6f1ff;
+  font-family: "Rajdhani";
+}
+QFrame#topBar,
+QFrame#bottomBar {
+  background-color: #0f1826;
+  border: 1px solid #27324a;
+  border-radius: 12px;
+}
+QFrame#heroFrame {
+  background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #101a2b, stop:1 #12243d);
+  border: 1px solid #27324a;
+  border-radius: 14px;
+}
+QLabel#labelAppTitle {
+  font-size: 20px;
+  font-weight: 700;
+}
+QLabel#labelAppSubtitle,
+QLabel#labelHeroSubtitle {
+  color: #8fa3c5;
+}
+QLabel#labelHeroTitle {
+  font-size: 18px;
+  font-weight: 600;
+}
+QLabel#labelSectionTitle {
+  color: #8fa3c5;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+QLabel#labelHeroChipMode,
+QLabel#labelHeroChipLatency,
+QLabel#labelHeroChipProfile {
+  background-color: #0b2238;
+  color: #4ef0ff;
+  border: 1px solid #2a8cff;
+  border-radius: 10px;
+  padding: 4px 10px;
+}
+QFrame#statusDot {
+  background-color: #ef476f;
+  border-radius: 6px;
+}
+QFrame#cardAudio,
+QFrame#cardFace,
+QFrame#cardActiveWindow,
+QFrame#cardGameStatus,
+QFrame#cardGeneral {
+  background-color: #121a28;
+  border: 1px solid #25344b;
+  border-radius: 14px;
+}
+QFrame#cardAudio:hover,
+QFrame#cardFace:hover,
+QFrame#cardActiveWindow:hover,
+QFrame#cardGameStatus:hover,
+QFrame#cardGeneral:hover {
+  border: 1px solid #4ef0ff;
+  background-color: #16223a;
+}
+QLabel#labelAudioDesc,
+QLabel#labelFaceDesc,
+QLabel#labelActiveWindowDesc,
+QLabel#labelGameStatusDesc,
+QLabel#labelGeneralDesc {
+  color: #9bb0d0;
+}
+QPushButton {
+  background-color: #2a8cff;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-weight: 600;
+}
+QPushButton:hover {
+  background-color: #47a1ff;
+}
+QPushButton#btnLogout {
+  background-color: #223043;
+}
+QPushButton#btnLogout:hover {
+  background-color: #2a3a54;
+}
+QPushButton#btnStartPlugin {
+  background-color: #00f5d4;
+  color: #06211d;
+}
+QPushButton#btnStartPlugin:hover {
+  background-color: #36ffe4;
+}
+QPushButton#btnStopPlugin {
+  background-color: #ef476f;
+}
+QPushButton#btnStopPlugin:hover {
+  background-color: #ff6b86;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+   <property name="spacing">
+    <number>14</number>
+   </property>
+   <property name="leftMargin">
+    <number>16</number>
+   </property>
+   <property name="topMargin">
+    <number>16</number>
+   </property>
+   <property name="rightMargin">
+    <number>16</number>
+   </property>
+   <property name="bottomMargin">
+    <number>16</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="topBar">
+     <layout class="QHBoxLayout" name="topBarLayout">
+      <item>
+       <layout class="QVBoxLayout" name="titleLayout">
+        <item>
+         <widget class="QLabel" name="labelAppTitle">
+          <property name="text">
+           <string>Smart Scene Switcher</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelAppSubtitle">
+          <property name="text">
+           <string>Control center for live scene automation</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="topBarSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelUsername">
+        <property name="text">
+         <string>Signed in as</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnLogout">
+        <property name="text">
+         <string>Logout</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+    <item>
+     <widget class="QFrame" name="heroFrame">
+      <layout class="QVBoxLayout" name="heroLayout">
+      <item>
+       <widget class="QLabel" name="labelHeroTitle">
+        <property name="text">
+        <string>Scene Control Center</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelHeroSubtitle">
+        <property name="text">
+        <string>Build automation rules for gaming, talk shows, and live events in one place.</string>
+        </property>
+        <property name="wordWrap">
+        <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="heroChipsLayout">
+        <item>
+        <widget class="QLabel" name="labelHeroChipMode">
+         <property name="text">
+          <string>Mode: Demo</string>
+         </property>
+        </widget>
+        </item>
+        <item>
+        <widget class="QLabel" name="labelHeroChipLatency">
+         <property name="text">
+          <string>Scan: 2s</string>
+         </property>
+        </widget>
+        </item>
+        <item>
+        <widget class="QLabel" name="labelHeroChipProfile">
+         <property name="text">
+          <string>Profile: Default</string>
+         </property>
+        </widget>
+        </item>
+        <item>
+        <spacer name="heroChipSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+          <width>40</width>
+          <height>20</height>
+          </size>
+         </property>
+        </spacer>
+        </item>
+       </layout>
+      </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="labelSectionTitle">
+      <property name="text">
+      <string>FEATURE MODULES</string>
+      </property>
+     </widget>
+    </item>
+   <item>
+    <layout class="QGridLayout" name="cardsGrid">
+     <item row="0" column="0">
+      <widget class="QFrame" name="cardAudio">
+       <layout class="QVBoxLayout" name="cardAudioLayout">
+        <item>
+         <widget class="QLabel" name="labelAudioTitle">
+          <property name="text">
+           <string>Audio Settings</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font-size: 16px; font-weight: 600;</string>
+          </property>
+        </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelAudioDesc">
+          <property name="text">
+           <string>Configure audio-driven triggers and thresholds.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="audioSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnConfigureAudio">
+          <property name="text">
+           <string>Configure</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QFrame" name="cardFace">
+       <layout class="QVBoxLayout" name="cardFaceLayout">
+        <item>
+         <widget class="QLabel" name="labelFaceTitle">
+          <property name="text">
+           <string>Face Detection</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font-size: 16px; font-weight: 600;</string>
+          </property>
+        </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelFaceDesc">
+          <property name="text">
+           <string>Switch scenes when a face is detected on camera.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="faceSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnConfigureFace">
+          <property name="text">
+           <string>Configure</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QFrame" name="cardActiveWindow">
+       <layout class="QVBoxLayout" name="cardActiveWindowLayout">
+        <item>
+         <widget class="QLabel" name="labelActiveWindowTitle">
+          <property name="text">
+           <string>Active Window</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font-size: 16px; font-weight: 600;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelActiveWindowDesc">
+          <property name="text">
+           <string>React to focused applications and window titles.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="activeWindowSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnConfigureActiveWindow">
+          <property name="text">
+           <string>Configure</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QFrame" name="cardGameStatus">
+       <layout class="QVBoxLayout" name="cardGameStatusLayout">
+        <item>
+         <widget class="QLabel" name="labelGameStatusTitle">
+          <property name="text">
+           <string>Game Status</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font-size: 16px; font-weight: 600;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelGameStatusDesc">
+          <property name="text">
+           <string>Monitor running games and map scenes automatically.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="gameStatusSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnConfigureGameStatus">
+          <property name="text">
+           <string>Configure</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QFrame" name="cardGeneral">
+       <layout class="QVBoxLayout" name="cardGeneralLayout">
+        <item>
+         <widget class="QLabel" name="labelGeneralTitle">
+          <property name="text">
+           <string>General Settings</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font-size: 16px; font-weight: 600;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelGeneralDesc">
+          <property name="text">
+           <string>Manage global plugin behavior and defaults.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="generalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnConfigureGeneral">
+          <property name="text">
+           <string>Configure</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QFrame" name="bottomBar">
+     <layout class="QHBoxLayout" name="bottomBarLayout">
+      <item>
+       <widget class="QFrame" name="statusDot">
+        <property name="minimumSize">
+         <size>
+          <width>12</width>
+          <height>12</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>12</width>
+          <height>12</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelStatus">
+        <property name="text">
+         <string>Status: Stopped</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="bottomBarSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnStartPlugin">
+        <property name="text">
+         <string>Start Plugin</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnStopPlugin">
+        <property name="text">
+         <string>Stop Plugin</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
